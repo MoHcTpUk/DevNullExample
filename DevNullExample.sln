@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public", "Public", "{EC1DF428-7BCA-4F34-B826-CD41C3C70103}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNullExample.Public.Api", "DevNullExample.Public.Api\DevNullExample.Public.Api.csproj", "{5760F003-3E70-4B5D-986B-65A4A8542951}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B4C27A2-914A-4D8C-854C-655451D92338} = {5B4C27A2-914A-4D8C-854C-655451D92338}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Private", "Private", "{532A43C5-6A51-4B22-A6A4-412193F09C58}"
 EndProject
