@@ -1,0 +1,3 @@
+[submodule "DevNullCore"]
+	path = DevNullCore
+	url = https://github.com/MoHcTpUk/DevNullCore.git
