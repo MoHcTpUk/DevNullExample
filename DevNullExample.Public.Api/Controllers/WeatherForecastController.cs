@@ -1,7 +1,9 @@
-﻿using DevNullExample.Public.Api.CustomService;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using DevNullExample.Public.Domain.Models;
+using DevNullExample.Public.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 
 namespace DevNullExample.Public.Api.Controllers
 {
@@ -10,18 +12,18 @@ namespace DevNullExample.Public.Api.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly ICustomService _customService;
+        private readonly WeatherForecastRepository _weatherForecastRepository;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICustomService customService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastRepository weatherForecastRepository)
         {
             _logger = logger;
-            _customService = customService;
+            _weatherForecastRepository = weatherForecastRepository;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public WeatherForecast Get()
         {
-            return _customService.Get();
+            return _weatherForecastRepository.Find(_=>_.Id == 1).FirstOrDefault();
         }
     }
 }

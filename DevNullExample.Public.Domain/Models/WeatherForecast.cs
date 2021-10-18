@@ -1,8 +1,9 @@
+using DevNullCore.Domain.Entitity;
 using System;
 
-namespace DevNullExample.Public.Api
+namespace DevNullExample.Public.Domain.Models
 {
-    public class WeatherForecast
+    public class WeatherForecast: BaseEntity<int>
     {
         public DateTime Date { get; set; }
 
