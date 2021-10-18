@@ -6,9 +6,9 @@ namespace DevNullExample.Public.Infrastructure
 {
     public class ServiceConfigurator : IServicesConfigurator
     {
-        public void ConfigureServices(IServiceCollection serviceCollection)
+        public void ConfigureServices(IServiceCollection services)
         {
-            serviceCollection.AddTransient<WeatherForecastRepository>();
+            services.AddTransient<WeatherForecastRepository>();
         }
     }
 }
