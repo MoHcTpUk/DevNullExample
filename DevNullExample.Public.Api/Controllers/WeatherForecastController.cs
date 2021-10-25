@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using DevNullExample.Public.Domain.Models;
-using DevNullExample.Public.Infrastructure.Repositories;
+﻿using DevNullExample.Public.Application.Dto;
+using DevNullExample.Public.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,18 +10,18 @@ namespace DevNullExample.Public.Api.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly WeatherForecastRepository _weatherForecastRepository;
+        private readonly IWeatherForecastService _weatherForecastService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastRepository weatherForecastRepository)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastService weatherForecastService)
         {
             _logger = logger;
-            _weatherForecastRepository = weatherForecastRepository;
+            _weatherForecastService = weatherForecastService;
         }
 
         [HttpGet]
-        public WeatherForecast Get()
+        public WeatherForecastDto Get()
         {
-            return _weatherForecastRepository.Find(_=>_.Id == 1).FirstOrDefault();
+            return _weatherForecastService.GetForecast(1);
         }
     }
 }

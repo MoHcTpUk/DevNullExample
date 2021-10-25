@@ -1,4 +1,6 @@
-﻿using DevNullCore.Ioc.Interfaces;
+﻿using DevNullCore.Domain.Repository;
+using DevNullCore.Ioc.Interfaces;
+using DevNullExample.Public.Domain.Models;
 using DevNullExample.Public.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +10,7 @@ namespace DevNullExample.Public.Infrastructure
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<WeatherForecastRepository>();
+            services.AddTransient<IRepository<WeatherForecast>, WeatherForecastRepository>();
         }
     }
 }

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevNullCore\DevNullCore.Ioc\DevNullCore.Ioc.csproj" />
+    <ProjectReference Include="..\DevNullExample.Public.Application\DevNullExample.Public.Application.csproj" />
     <ProjectReference Include="..\DevNullExample.Public.Infrastructure\DevNullExample.Public.Infrastructure.csproj" />
   </ItemGroup>
 
