@@ -27,7 +27,9 @@ namespace DevNullExample.Public.Api
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             DependencyContainer.ConfigureDepencies(services);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevNullExample.Public.Api", Version = "v1" });

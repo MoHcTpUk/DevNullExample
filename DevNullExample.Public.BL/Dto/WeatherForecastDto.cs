@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevNullExample.Public.Application.Dto
+namespace DevNullExample.Public.BL.Dto
 {
     public class WeatherForecastDto
     {

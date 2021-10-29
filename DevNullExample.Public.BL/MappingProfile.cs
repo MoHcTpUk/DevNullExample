@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DevNullExample.Public.Application.Dto;
+using DevNullExample.Public.BL.Dto;
 using DevNullExample.Public.Domain.Models;
 
-namespace DevNullExample.Public.Application
+namespace DevNullExample.Public.BL
 {
     public class MappingProfile : Profile
     {

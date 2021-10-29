@@ -1,12 +1,13 @@
-﻿using System;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using DevNullCore.Domain.Repository;
-using DevNullExample.Public.Application.Dto;
-using DevNullExample.Public.Application.Services.Interfaces;
+using DevNullExample.Public.BL.Dto;
+using DevNullExample.Public.BL.Services.Interfaces;
 using DevNullExample.Public.Domain.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace DevNullExample.Public.Application.Services.Concrete
+namespace DevNullExample.Public.BL.Services.Concrete
 {
     public class WeatherForecastService : IWeatherForecastService
     {
@@ -14,14 +15,22 @@ namespace DevNullExample.Public.Application.Services.Concrete
         private readonly IRepository<WeatherForecast> _weatherForecastRepository;
 
         public WeatherForecastService(
-            IMapper mapper, 
+            IMapper mapper,
             IRepository<WeatherForecast> weatherForecastRepository)
         {
             _mapper = mapper;
             _weatherForecastRepository = weatherForecastRepository;
         }
 
-        public WeatherForecastDto GetForecast(int id)
+        public async Task<WeatherForecastDto> Create(WeatherForecastDto dto)
+        {
+            var entity = _mapper.Map<WeatherForecast>(dto);
+            entity = await _weatherForecastRepository.Create(entity);
+
+            return _mapper.Map<WeatherForecastDto>(entity);
+        }
+
+        public WeatherForecastDto Get(int id)
         {
             var entity = _weatherForecastRepository.Find(_ => _.Id == 1).FirstOrDefault();
 

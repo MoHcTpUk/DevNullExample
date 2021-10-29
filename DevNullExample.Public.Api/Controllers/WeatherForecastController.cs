@@ -1,5 +1,7 @@
-﻿using DevNullExample.Public.Application.Dto;
-using DevNullExample.Public.Application.Services.Interfaces;
+﻿using System.Threading.Tasks;
+using DevNullExample.Public.Application.Commands.WeatherForecast;
+using DevNullExample.Public.BL.Dto;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -10,18 +12,24 @@ namespace DevNullExample.Public.Api.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IWeatherForecastService _weatherForecastService;
+        private readonly IMediator _mediator;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastService weatherForecastService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IMediator mediator)
         {
             _logger = logger;
-            _weatherForecastService = weatherForecastService;
+            _mediator = mediator;
         }
 
-        [HttpGet]
-        public WeatherForecastDto Get()
+        //[HttpGet]
+        //public WeatherForecastDto Get(int id)
+        //{
+        //    return _weatherForecastService.Get(id);
+        //}
+
+        [HttpPost]
+        public async Task<WeatherForecastDto> Create(CreateWeatherForecastRequest request)
         {
-            return _weatherForecastService.GetForecast(1);
+            return await _mediator.Send(request);
         }
     }
 }

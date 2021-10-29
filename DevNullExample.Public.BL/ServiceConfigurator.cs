@@ -1,9 +1,9 @@
 ﻿using DevNullCore.Ioc.Interfaces;
-using DevNullExample.Public.Application.Services.Concrete;
-using DevNullExample.Public.Application.Services.Interfaces;
+using DevNullExample.Public.BL.Services.Concrete;
+using DevNullExample.Public.BL.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DevNullExample.Public.Application
+namespace DevNullExample.Public.BL
 {
     public class ServiceConfigurator : IServicesConfigurator
     {
